@@ -1,4 +1,5 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
+// Declara el Array para almacenar los nombres de amigos
 let amigos = [];
 
 // Fuunción para agregar amigo
@@ -8,11 +9,13 @@ function agregarAmigo(){
     //console.log(nombreAmigo);
     if (validarLaEntrada(nombreAmigo)) {
       asignarTextoElemento("h4", "");
-      // Agregar el nombre al array de amigos
+      // Agregar los nombres al array de amigos
       amigos.push(nombreAmigo);
-      console.log(amigos);
+      //console.log(amigos);
+      //limpia el campo donde se captura el nombre del amigo
       inputAmigo.value="";
       inputAmigo.focus();
+      actualizarListaAmigos();
     }
 }  
 
@@ -22,7 +25,7 @@ function validarLaEntrada(nombreAmigo) {
   let mensaje = "";
   let nombre1 = document.getElementById("amigo");
   nombre1.value = ""; //Limpia el campo donde se captura el nombre del amigo
-  // Validar que el campono este vacio
+  // Validar que el campo no este vacio
   if (nombreAmigo.length < 1) {
     mensaje = "Por favor, inserte un nombre.";
     // Validar que el nombre no este duplicado
@@ -49,8 +52,20 @@ function sonCaracteresValidos(nombreAmigo) {
   return /^[A-Z|\u00D1| |\u00F1]+$/i.test(nombreAmigo); //false= No es una Letra, true = es una letra
 }
 
+// Función Asignar Texto
 function asignarTextoElemento(elemento, texto) {
   let elementoHTML = document.querySelector(elemento);
   elementoHTML.innerHTML = texto;
   return;
+}
+
+// Función Actualizar Lista de Amigos
+function actualizarListaAmigos(){
+  let listaAmigos = document.getElementById("listaAmigos")
+  listaAmigos.innerHTML = "";
+  for(let i = 0; i < amigos.length; i++){
+    let item = document.createElement("li");
+    item.textContent = amigos[i];
+    listaAmigos.appendChild(item);
+  }
 }
