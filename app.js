@@ -63,9 +63,33 @@ function asignarTextoElemento(elemento, texto) {
 function actualizarListaAmigos(){
   let listaAmigos = document.getElementById("listaAmigos")
   listaAmigos.innerHTML = "";
+  // Recorre el array con un ciclo FOR
   for(let i = 0; i < amigos.length; i++){
     let item = document.createElement("li");
     item.textContent = amigos[i];
     listaAmigos.appendChild(item);
   }
+}
+
+// Función Sortear Amigo
+function sortearAmigo(){
+  asignarTextoElemento ("h4", "");
+  if (amigos.length === 0) { // Comprueba si el array [amigos] está vacio
+    asignarTextoElementoById("mensaje-sorteado", "No hay amigos registrados.");
+  return;
+  }
+   // Para seleccionar un índice aleatorio del arreglo Math.floor(Math.random()).
+  let amigoSorteado = amigos[Math.floor(Math.random()*amigos.length)];
+  // Mostrar el resultado en el HTML
+  let resultado = document.getElementById("resultado");
+  resultado.innerHTML= `El amigo sorteado es: ${amigoSorteado}`;
+
+  let limpiarLista = document.getElementById("listaAmigos");
+  limpiarLista.innerHTML = "";
+} 
+
+function asignarTextoElementoById(elemento, texto) {
+  let elementoHTML = document.getElementById(elemento);
+  elementoHTML.innerHTML = texto;
+  return;
 }
