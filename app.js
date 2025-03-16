@@ -83,10 +83,18 @@ function sortearAmigo(){
   // Mostrar el resultado en el HTML
   let resultado = document.getElementById("resultado");
   resultado.innerHTML= `El amigo sorteado es: ${amigoSorteado}`;
-
+  //Borra la lista de amigo luego de realizar el sorteo
   let limpiarLista = document.getElementById("listaAmigos");
   limpiarLista.innerHTML = "";
+  document.getElementById('botonSortear').disabled = true;
 } 
+
+// Permitir que puedan agregar amigos con la tecla 'Enter'
+document.addEventListener("keypress", function(event){
+  if (event.key == "Enter") {
+    document.getElementById("botonAñadir").click();
+  }
+}) 
 
 function asignarTextoElementoById(elemento, texto) {
   let elementoHTML = document.getElementById(elemento);
