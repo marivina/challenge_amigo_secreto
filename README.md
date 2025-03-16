@@ -4,7 +4,7 @@
     <br />
     <br />
     <a href="https://marivina.github.io/challenge_amigo_secreto/">
-      <img src="https://github.com/marivina/challenge-amigo-secreto/blob/main/assets/amigo-secreto.png" alt="♨️ imagen-amigo-secreto ⚙️">
+      <img src="https://github.com/marivina/challenge_amigo_secreto/blob/main/assets/amigo-secreto.png" alt="♨️ imagen-amigo-secreto ⚙️">
     </a>
   </h1>
 </div>
